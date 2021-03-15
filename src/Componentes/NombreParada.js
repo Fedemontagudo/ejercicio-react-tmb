@@ -1,6 +1,8 @@
+
+
 const NombreParada = () => {
   return (
-    <h1>Parada nº 15</h1>
+    <h1>Parada nº {}</h1>
   );
 };
 

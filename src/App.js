@@ -10,11 +10,12 @@ function App() {
   const [lineas, setLineas] = useState([]);
   const [numeroParada, setNumeroParada] = useState(0);
   const [ocultarFrase, setOcultarFrase] = useState(true);
+  const [tiempo, setTiempo] = useState(0);
   const { data } = datosApi;
   const { ibus, ibus: { line, destination } } = data;
 
   return (
-    <ParadasContext.Provider value={ibus}>
+    <ParadasContext.Provider value={{ ibus, numeroParada, tiempo, setTiempo, setNumeroParada }}>
       <OcultarContext.Provider value={ocultarFrase}>
         <div className="contenedor">
           <InfoParada />
