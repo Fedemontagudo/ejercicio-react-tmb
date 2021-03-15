@@ -1,10 +1,12 @@
+import { Button, Form } from "react-bootstrap";
+
 const Buscador = () => {
   return (
-    <form>
-      <label htmlFor="num-parada">Parada nº: </label>
-      <input type="number" id="num-parada" /*value={numeroParada}*/ />
-      <button type="submit">Buscar</button>
-    </form>
+    <Form.Group>
+      <Form.Label htmlFor="num-parada">Parada nº: </Form.Label>
+      <input type="number" id="num-parada" /* value={numeroParada} */ />
+      <Button type="submit">Buscar</Button>
+    </Form.Group>
   );
 };
 

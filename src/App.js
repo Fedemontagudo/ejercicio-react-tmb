@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Formalurio from "./componentes/Formulario";
 import InfoParada from "./componentes/InfoParada";
 import OcultarContext from "./contexts/OcultarContext";
+import ParadasContext from "./contexts/ParadasContext";
 import ejemplo from "./ejemplo.json";
 
 function App() {
@@ -10,14 +11,17 @@ function App() {
   const [numeroParada, setNumeroParada] = useState(0);
   const [ocultarFrase, setOcultarFrase] = useState(true);
   const { data } = datosApi;
-  const { ibus: { line, destination } } = data;
+  const { ibus, ibus: { line, destination } } = data;
+
   return (
-    <OcultarContext.Provider value={ocultarFrase}>
-      <div className="contenedor">
-        <InfoParada />
-        <Formalurio />
-      </div>
-    </OcultarContext.Provider>
+    <ParadasContext.Provider value={ibus}>
+      <OcultarContext.Provider value={ocultarFrase}>
+        <div className="contenedor">
+          <InfoParada />
+          <Formalurio />
+        </div>
+      </OcultarContext.Provider>
+    </ParadasContext.Provider>
   );
 }
 
