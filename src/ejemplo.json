@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "data": {
+    "ibus": [
+      {
+        "routeId": "0941",
+        "line": "94",
+        "text-ca": "14 min",
+        "t-in-s": 870,
+        "destination": "Barri Almeda",
+        "t-in-min": 14
+      },
+      {
+        "routeId": "0670",
+        "line": "67",
+        "text-ca": "22 min",
+        "t-in-s": 1333,
+        "destination": "Cornellà",
+        "t-in-min": 22
+      }
+    ]
+  }
+}

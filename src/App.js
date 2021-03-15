@@ -1,4 +1,14 @@
+import { useState } from "react";
+import ejemplo from "./ejemplo.json";
 function App() {
+  const [datosApi, setDatosAPi] = useState(ejemplo);
+  const [lineas, setLineas] = useState([]);
+  const [numeroParada, setNumeroParada] = useState(0);
+  const { status, data } = datosApi;
+  const { ibus } = data;
+
+
+
   return (
     <div className="contenedor">
       <header className="cabecera">
@@ -25,13 +35,13 @@ function App() {
       <section className="forms">
         <form>
           <label htmlFor="num-parada">Parada nº: </label>
-          <input type="number" id="num-parada" />
+          <input type="number" id="num-parada" value={numeroParada} />
           <button type="submit">Buscar</button>
         </form>
         <form>
           <label htmlFor="tiempo-linea">Tiempo para que llegue la línea: </label>
           <select id="tiempo-linea">
-            <option value="">Elige línea</option>
+            <option value={lineas}>Elige línea</option>
           </select>
         </form>
       </section>
