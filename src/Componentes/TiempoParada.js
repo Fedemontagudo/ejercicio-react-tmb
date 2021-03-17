@@ -1,21 +1,21 @@
 import { useContext, useEffect } from "react";
 import OcultarContext from "../contexts/OcultarContext";
-import ParadasContext from "../contexts/ParadasContext";
+import LineasContext from "../contexts/LineasContext";
 
 
 const TiempoParada = () => {
   const ocultarFrase = useContext(OcultarContext);
-  const elegirLinea = useContext(ParadasContext);
-  const { ibus, numeroParada, tiempo, setTiempo } = elegirLinea;
+  const elegirLinea = useContext(LineasContext);
+  const { ibus, numeroLinea, tiempo, setTiempo } = elegirLinea;
   useEffect(() => {
-    if (numeroParada !== 0) {
-      setTiempo(ibus.filter(bus => bus.line === numeroParada)[0]["text-ca"]);
+    if (numeroLinea !== 0 && numeroLinea !== "") {
+      setTiempo(ibus.filter(bus => bus.line === numeroLinea)[0]["text-ca"]);
     }
-  }, [ibus, numeroParada, setTiempo]);
+  }, [ibus, numeroLinea, setTiempo]);
 
 
   return (
-    <h2 hidden={ocultarFrase}>Tiempo para la línea {numeroParada} : {tiempo} </h2>
+    <h2 hidden={ocultarFrase}>Tiempo para la línea {numeroLinea} : {tiempo} </h2>
   );
 };
 

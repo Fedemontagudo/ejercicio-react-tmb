@@ -1,18 +1,18 @@
 import { useContext } from "react";
 import OcultarContext from "../contexts/OcultarContext";
-import ParadasContext from "../contexts/ParadasContext";
+import LineasContext from "../contexts/LineasContext";
 
 const EligeLinea = () => {
   const ocultarFrase = useContext(OcultarContext);
-  const paradas = useContext(ParadasContext);
-  const { ibus, setNumeroParada } = paradas;
-  const elegirLinea = e => setNumeroParada(e.target.value);
+  const lineas = useContext(LineasContext);
+  const { ibus, setNumeroLinea } = lineas;
+  const elegirLinea = e => setNumeroLinea(e.target.value);
   return (
     <form hidden={ocultarFrase}>
       <label htmlFor="tiempo-linea">Tiempo para que llegue la línea: </label>
       <select onChange={elegirLinea} id="tiempo-linea">
         <option value="">Elige línea</option>
-        {ibus.map(parada => <option value={parada.line} key={parada.routeId}>{parada.line}</option>)}
+        {ibus.map(linea => <option value={linea.line} key={linea.routeId}>{linea.line}</option>)}
       </select>
     </form >
   );
