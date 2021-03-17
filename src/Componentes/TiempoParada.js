@@ -12,8 +12,6 @@ const TiempoParada = () => {
       setTiempo(ibus.filter(bus => bus.line === numeroLinea)[0]["text-ca"]);
     }
   }, [ibus, numeroLinea, setTiempo]);
-
-
   return (
     <h2 hidden={ocultarFrase}>Tiempo para la línea {numeroLinea} : {tiempo} </h2>
   );

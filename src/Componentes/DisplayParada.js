@@ -1,21 +1,31 @@
+import { useContext, useEffect, useState } from "react";
+import BuscarParadaContext from "../contexts/BuscarParadaContext";
+
 const DisplayParada = () => {
+  const bus = useContext(BuscarParadaContext);
+  const { ibus } = bus;
+  const [topLineasParada, setTopLineasParada] = useState(0);
+  useEffect(() => {
+    let numeroDeRepeticiones = 0;
+    const intervalMovimiento = setInterval(() => {
+      setTopLineasParada((top) => top - 30);
+      numeroDeRepeticiones++;
+      if (numeroDeRepeticiones === ibus.length) {
+        numeroDeRepeticiones = 0;
+        setTopLineasParada(0);
+      }
+    }, 5000);
+  }, [ibus.length]);
   return (
     <div className="display">
-      <div className="bus">
-        <span className="linea">V16</span>
-        <span className="destino">Universitat</span>
-        <span className="tiempo">10min</span>
-      </div>
-      <div className="bus">
-        <span className="linea">H12</span>
-        <span className="destino">Pla de Palau</span>
-        <span className="tiempo">1min</span>
-      </div>
-      <div className="bus">
-        <span className="linea">32</span>
-        <span className="destino">Barceloneta</span>
-        <span className="tiempo">4min</span>
-      </div>
+      {
+        ibus.map(bus =>
+          <div key={bus.routeId} className="bus" style={{ top: `${topLineasParada}px` }}>
+            <span className="linea">{bus.line}</span>
+            <span className="destino">{bus.destination}</span>
+            <span className="tiempo">{bus["text-ca"]}</span>
+          </div>)
+      }
     </div>
   );
 };
