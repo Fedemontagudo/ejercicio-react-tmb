@@ -32,7 +32,7 @@ function App() {
 
   return (
     <BuscarParadaContext.Provider value={{ ibus, numeroParada, parada, lineas, setNumeroParada, setOcultarFrase }}>
-      <LineasContext.Provider value={{ ibus, numeroLinea, tiempo, setTiempo, setNumeroLinea }}>
+      <LineasContext.Provider value={{ numeroLinea, tiempo, lineas, setTiempo, setNumeroLinea }}>
         <OcultarContext.Provider value={ocultarFrase}>
           <div className="contenedor">
             <InfoParada />
