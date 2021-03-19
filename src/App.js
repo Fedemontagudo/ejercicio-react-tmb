@@ -15,7 +15,6 @@ function App() {
   const [numeroLinea, setNumeroLinea] = useState(0);
   const [ocultarFrase, setOcultarFrase] = useState(true);
   const [tiempo, setTiempo] = useState(0);
-  const { data: { ibus } } = datosApi;
 
   useEffect(() => {
     if (numeroParada) {
@@ -31,8 +30,8 @@ function App() {
 
 
   return (
-    <BuscarParadaContext.Provider value={{ ibus, numeroParada, parada, lineas, setNumeroParada, setOcultarFrase }}>
-      <LineasContext.Provider value={{ numeroLinea, tiempo, lineas, setTiempo, setNumeroLinea }}>
+    <BuscarParadaContext.Provider value={{ numeroParada, parada, lineas, setNumeroParada, setOcultarFrase, }}>
+      <LineasContext.Provider value={{ numeroLinea, tiempo, lineas, parada, setTiempo, setNumeroLinea }}>
         <OcultarContext.Provider value={ocultarFrase}>
           <div className="contenedor">
             <InfoParada />

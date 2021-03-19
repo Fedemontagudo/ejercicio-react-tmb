@@ -8,8 +8,8 @@ const TiempoParada = () => {
   const elegirLinea = useContext(LineasContext);
   const { lineas, numeroLinea, tiempo, setTiempo } = elegirLinea;
   useEffect(() => {
-    if (numeroLinea !== 0 && numeroLinea !== "") {
-      setTiempo(lineas.data.ibus.filter(bus => bus.line === numeroLinea)[0]["text-ca"]);
+    if (numeroLinea !== 0 && numeroLinea !== "" && lineas.data.ibus.length !== 0) {
+      setTiempo(lineas.data.ibus?.filter(bus => bus.line === numeroLinea)[0]["text-ca"]);
     }
   }, [lineas, numeroLinea, setTiempo]);
   return (
