@@ -5,7 +5,7 @@ import useFetch from "../hooks/useFetch";
 
 const Buscador = () => {
   const buses = useContext(BuscarParadaContext);
-  const { numeroParada, setNumeroParada, parada, lineas, setOcultarFrase } = buses;
+  const { numeroParada, setNumeroParada, parada, setOcultarFrase, } = buses;
 
   const cambiarInput = e => {
     setNumeroParada(e.target.value);
