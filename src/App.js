@@ -10,7 +10,6 @@ import useFetch from "./hooks/useFetch";
 function App() {
   const { datos: parada, pedirDatos: pedirParada } = useFetch();
   const { datos: lineas, pedirDatos: pedirLineas } = useFetch();
-  const [datosApi, setDatosAPi] = useState(ejemplo);
   const [numeroParada, setNumeroParada] = useState("");
   const [numeroLinea, setNumeroLinea] = useState(0);
   const [ocultarFrase, setOcultarFrase] = useState(true);
